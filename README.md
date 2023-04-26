@@ -22,3 +22,42 @@
   - スキーマは、GraphQLのクエリの定義を行う
 - リゾルバの定義
   - リゾルバは、スキーマに定義したクエリの実行を行う
+
+## Prisma
+- 初期化
+```bash
+$ npx prisma init
+```
+
+- スキーマ定義
+schema.prisma
+```prisma
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Link {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  url         String
+  description String
+}
+```
+
+- マイグレーション
+```bash
+$ npx prisma migrate dev --name init
+```
+
+- クライアントの生成
+```bash
+$ npx prisma generate
+```

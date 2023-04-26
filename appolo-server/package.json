@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "compile": "tsc",
-    "start": "npm run compile && node ./dist/server.js"
+    "start": "npm run compile && node ./dist/server.js",
+    "dev": "node --loader ts-node/esm ./src/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -13,11 +14,14 @@
   "type": "module",
   "dependencies": {
     "@apollo/server": "^4.7.0",
+    "@prisma/client": "^4.13.0",
     "graphql": "^16.6.0",
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
     "@types/node": "^18.16.1",
+    "nodemon": "^2.0.22",
+    "prisma": "^4.13.0",
     "typescript": "^5.0.4"
   }
 }
